@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
-    
+    <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
- 
+    <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
   </head>
   <body>
@@ -19,18 +19,21 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
-         
-            <a :href="url">Made by Vue Mastery</a>
-         
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
+            <p v-else>Out of Stock</p>
+            <!-- solution -->
+            <p v-if="onSale">On Sale!</p>
+            <!-- solution -->
           </div>
         </div>
       </div>
     </div>
 
-   
+    <!-- Import App -->
     <script src="./main.js"></script>
 
-   
+    <!-- Mount App -->
     <script>
       const mountedApp = app.mount('#app')
     </script>
